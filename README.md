@@ -2,6 +2,7 @@
 
 This repo is providing a simple manifest that constract LEMP on kubernetes.
 
+# CONFIGURATION
 - line 6    - 16   is a statement about www data. No changes to be made.
 - line 18   - 118  is a statement about database. The username, password, and root password for lines 37 to 45 need to be changed.  
   ```yaml
@@ -39,8 +40,34 @@ This repo is providing a simple manifest that constract LEMP on kubernetes.
       
       ;ffi.preload=
   ```
-- line 2146 - 2230 is a statement about nginx.    In some cases, change php.ini from line2153 to 2170.  
+- line 2146 - 2230 is a statement about nginx.    In some cases, change php.ini from line2153 to 2170.
+  ```yaml
+  apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: nginx
+  data:
+    default.conf: |
+      server {
+        listen 80;
+        server_name _;
+        root /var/www/html;
+        index index.php index.html;
+        location / {
+          try_files $uri $uri/ /index.php$is_args$args;
+        }
+        location ~ [^/]\.php(/|$) {
+          fastcgi_split_path_info ^(.+?\.php)(/.*)$;
+          fastcgi_pass php:9000;
+          fastcgi_index index.php;
+          include fastcgi_params;
+          fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+          fastcgi_param PATH_INFO $fastcgi_path_info;
+        }
+      }
+  ```
 
+# TEST
 ```sh
 #!/bin/bash
 # For those building on a trial basis
