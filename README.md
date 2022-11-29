@@ -21,7 +21,22 @@ This repo is providing a simple manifest that constract LEMP on kubernetes.
     password: cEFTc1cwckQjCg==
     rtpasswd: cEFTc1cwckQjCg==
   ```
-- line 120  - 2144 is a statement about php.      In some cases, change php.ini from line127 to 2084.  
+- line 120  - 2144 is a statement about php.      In some cases, change php.ini from line127 to 2084.
+  ```yaml
+  apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: php
+  data:
+    php.ini: |
+      [PHP]
+    
+      ;;;;;;;;;;;;;;;;;;;
+      ; About php.ini   ;
+      ;;;;;;;;;;;;;;;;;;;
+  ・・・
+      ;ffi.preload=
+  ```
 - line 2146 - 2230 is a statement about nginx.    In some cases, change php.ini from line2153 to 2170.  
 
 ```sh
