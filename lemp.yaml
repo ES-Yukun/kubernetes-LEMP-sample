@@ -117,8 +117,8 @@ spec:
       port: 3306
       targetPort: mariadb
 ---
-
 ## php
+
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -2143,7 +2143,6 @@ spec:
       port: 9000
       targetPort: php
 ---
-
 ##  nginx
 
 apiVersion: v1
