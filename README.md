@@ -34,7 +34,9 @@ This repo is providing a simple manifest that constract LEMP on kubernetes.
       ;;;;;;;;;;;;;;;;;;;
       ; About php.ini   ;
       ;;;;;;;;;;;;;;;;;;;
-  ・・・
+      
+      ・・・
+      
       ;ffi.preload=
   ```
 - line 2146 - 2230 is a statement about nginx.    In some cases, change php.ini from line2153 to 2170.  
