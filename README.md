@@ -2,7 +2,7 @@
 
 This repo is providing a simple manifest that constract LEMP on kubernetes.
 
-# CONFIGURATION
+# configuration 
 - line 6    - 16   is a statement about www data. No changes to be made.
 - line 18   - 118  is a statement about database. The username, password, and root password for lines 37 to 45 need to be changed.  
   ```yaml
@@ -67,7 +67,7 @@ This repo is providing a simple manifest that constract LEMP on kubernetes.
       }
   ```
 
-# TEST
+# test
 ```sh
 #!/bin/bash
 # For those building on a trial basis
