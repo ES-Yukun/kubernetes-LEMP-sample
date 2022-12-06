@@ -40,9 +40,9 @@ data:
   # password: pASsW0rD
   # rtpasswd: pASsW0rD     (root password)
   ## 
-  username: bWFyaWEK
-  password: cEFTc1cwckQK
-  rtpasswd: cEFTc1cwckQK
+  username: bWFyaWE=
+  password: cEFTc1cwckQ=
+  rtpasswd: cEFTc1cwckQ=
 ---
 apiVersion: apps/v1
 kind: Deployment
