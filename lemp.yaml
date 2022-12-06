@@ -113,7 +113,7 @@ spec:
   type: ClusterIP
   ports:
     - name: mariadb
-      protocol: UDP
+      protocol: TCP
       port: 3306
       targetPort: mariadb
 ---
