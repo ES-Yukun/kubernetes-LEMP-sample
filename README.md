@@ -15,12 +15,12 @@ This repo is providing a simple manifest that constract LEMP on kubernetes.
     ## 
     # @WARNING: THIS IS SAMPLE CONFIGURATION.
     # username: maria
-    # password: pASsW0rD#
-    # rtpasswd: pASsW0rD#     (root password)
+    # password: pASsW0rD
+    # rtpasswd: pASsW0rD     (root password)
     ## 
-    username: bWFyaWEK
-    password: cEFTc1cwckQjCg==
-    rtpasswd: cEFTc1cwckQjCg==
+    username: bWFyaWE=
+    password: cEFTc1cwckQ=
+    rtpasswd: cEFTc1cwckQ=
   ```
 - line 120  - 2144 is a statement about php.      In some cases, change php.ini from line127 to 2084.
   ```yaml
