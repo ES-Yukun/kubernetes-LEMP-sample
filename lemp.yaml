@@ -37,12 +37,12 @@ data:
   ## 
   # @WARNING: THIS IS SAMPLE CONFIGURATION.
   # username: maria
-  # password: pASsW0rD#
-  # rtpasswd: pASsW0rD#     (root password)
+  # password: pASsW0rD
+  # rtpasswd: pASsW0rD     (root password)
   ## 
   username: bWFyaWEK
-  password: cEFTc1cwckQjCg==
-  rtpasswd: cEFTc1cwckQjCg==
+  password: cEFTc1cwckQK
+  rtpasswd: cEFTc1cwckQK
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -67,21 +67,21 @@ spec:
           - name: data
             mountPath: "/var/lib/mysql"
           env:
-          - name: MYSQL_DATABASE
+          - name: MARIADB_DATABASE
             value: mariadb
           - name: TZ
             value: "Asia/Tokyo"
-          - name: MYSQL_USER
+          - name: MARIADB_USER
             valueFrom:
               secretKeyRef:
                 name: mariadb
                 key: username
-          - name: MYSQL_PASSWORD
+          - name: MARIADB_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: mariadb
                 key: password
-          - name: MYSQL_ROOT_PASSWORD
+          - name: MARIADB_ROOT_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: mariadb
