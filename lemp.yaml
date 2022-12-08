@@ -2138,7 +2138,7 @@ spec:
               subPath: "php.ini"
               readOnly: true
           command: ["bash"]
-          args: ["-c", "docker-php-ext-install pdo pdo_mysql && php-fpm"]
+          args: ["-c", "apt update && apt install libonig-dev -y  && chown -R www-data:www-data /usr/share/nginx && docker-php-ext-install pdo_mysql mysqli mbstring && php-fpm"]
           ports:
             - name: php
               protocol: TCP
