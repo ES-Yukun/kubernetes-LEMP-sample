@@ -2138,7 +2138,7 @@ spec:
               subPath: "php.ini"
               readOnly: true
           command: ["bash"]
-          args: ["-c", "docker-php-ext-install pdo pdo_mysql && chown -R www-data:www-data /var/www/html && php-fpm"]
+          args: ["-c", "docker-php-ext-install pdo pdo_mysql && php-fpm"]
           ports:
             - name: php
               protocol: TCP
