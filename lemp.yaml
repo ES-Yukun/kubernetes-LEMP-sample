@@ -14,20 +14,6 @@ spec:
     requests:
       storage: 20Gi
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  name: coder
-spec:
-  selector:
-    app: coder
-  type: LoadBalancer
-  ports:
-  - name: coder
-    protocol: TCP
-    port: 8080
-    targetPort: http
----
 ## database
 
 apiVersion: v1
@@ -139,7 +125,7 @@ kind: ConfigMap
 metadata:
   name: php
 data:
-  php.ini: |
+  php.ini: |-
     [PHP]
     
     ;;;;;;;;;;;;;;;;;;;
@@ -2138,7 +2124,26 @@ spec:
               subPath: "php.ini"
               readOnly: true
           command: ["bash"]
-          args: ["-c", "apt update && apt install libonig-dev -y  && chown -R www-data:www-data /usr/share/nginx && docker-php-ext-install pdo_mysql mysqli mbstring && php-fpm"]
+          args: 
+          - "-c"
+          - >-
+            apt update &&
+            apt install -y libonig-dev &&
+            apt install -y libzip-dev &&
+            apt install -y libicu-dev &&
+            apt install -y libpng-dev &&
+            apt install -y imagemagick libmagickwand-dev &&
+            pecl install imagick &&
+            chown -R www-data:www-data /usr/share/nginx &&
+            docker-php-ext-install pdo_mysql &&
+            docker-php-ext-install mysqli &&
+            docker-php-ext-install mbstring &&
+            docker-php-ext-install exif &&
+            docker-php-ext-install zip &&
+            docker-php-ext-install gd &&
+            docker-php-ext-install intl &&
+            docker-php-ext-enable imagick &&
+            php-fpm
           ports:
             - name: php
               protocol: TCP
